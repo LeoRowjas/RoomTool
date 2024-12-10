@@ -1,0 +1,63 @@
+<Window x:Class="RoomTool.Views.CoefficientModalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:RoomTool"
+        mc:Ignorable="d"
+        Title="CoefficientModalWindow" Height="300" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="1" Margin="10">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Жилые помещения квартиры" VerticalAlignment="Center" />
+                <TextBox Text="1.0" x:Name="LivingSpacesApartments"
+                    Grid.Row="0" Grid.Column="1" Margin="5" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Нежилые помещения квартиры" VerticalAlignment="Center" />
+                <TextBox Text="1.0" x:Name="UnlivingSpacesApartments"
+                         Grid.Row="1" Grid.Column="1" Margin="5" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Лоджия" VerticalAlignment="Center" />
+                <TextBox Text="0.5" x:Name="Logia"
+                         Grid.Row="2" Grid.Column="1" Margin="5"  />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Балкон, терраса" VerticalAlignment="Center" />
+                <TextBox Text="0.3" x:Name="BalconyOrTerrace"
+                         Grid.Row="3" Grid.Column="1" Margin="5" />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Нежилые помещения общественные" VerticalAlignment="Center" />
+                <TextBox Text="1.0" x:Name="UnlivingSpacesPublic"
+                         Grid.Row="4" Grid.Column="1" Margin="5" />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Офисы" VerticalAlignment="Center" />
+                <TextBox Text="1.0" x:Name="Offices"
+                         Grid.Row="5" Grid.Column="1" Margin="5" />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Теплые лоджии" VerticalAlignment="Center" />
+                <TextBox Text="1.0" x:Name="WarmLogia"
+                         Grid.Row="6" Grid.Column="1" Margin="5" />
+            </Grid>
+        </Border>
+
+        <Button Grid.Row="1" Click="SaveButton_OnClick" Content="Сохранить" Width="100" Height="30" HorizontalAlignment="Right" Margin="10" />
+    </Grid>
+</Window>

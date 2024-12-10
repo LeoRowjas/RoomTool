@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU;x64</Platforms>
+        <UserSecretsId>4dbb37f5-de9d-4f5d-9617-4b87c43939b7</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="hostdbmgd">
+        <HintPath>..\..\NANOCAD\SDKNC\include-x64\hostdbmgd.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="hostmgd">
+        <HintPath>..\..\NANOCAD\SDKNC\include-x64\hostmgd.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="ncBIMSmgd">
+        <HintPath>..\..\NANOCAD\SDKBIM\include-x64\ncBIMSmgd.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="NrxGateMgd">
+        <HintPath>..\..\NANOCAD\SDKNC\include-x64\nrxgatemgd.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ApplicationDefinition Include="Views\App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+      </ApplicationDefinition>
+    </ItemGroup>
+
+</Project>
