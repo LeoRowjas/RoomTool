@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:RoomTool"
         mc:Ignorable="d"
-        Title="CoefficientModalWindow" Height="300" Width="500">
+        Title="CoefficientModalWindow" Height="350" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
+using System.Windows.Controls;
 using RoomTool.Helpers;
-using RoomTool.Models;
-using Teigha.Runtime;
 
 namespace RoomTool.Views
 {
@@ -14,41 +13,59 @@ namespace RoomTool.Views
         public CoefficientModalWindow()
         {
             InitializeComponent();
+            SetDefaultValues();
         }
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             SetCoefficients();
             DialogResult = true;
+            Close();
+        }
+        
+        private void SetDefaultValues()
+        {
+            var textBoxes = GetAllTextBoxes(this);
+
+            foreach (var textBox in textBoxes)
+            {
+                if (Coefficients.CoefficientsDictionary.TryGetValue(textBox.Name, out var value))
+                {
+                    textBox.Text = value.ToString(CultureInfo.InvariantCulture);
+                }
+            }
         }
 
         private void SetCoefficients()
         {
-            var coefficient = new List<double>
-            {
-                double.Parse(LivingSpacesApartments.Text),
-                double.Parse(UnlivingSpacesApartments.Text),
-                double.Parse(Logia.Text),
-                double.Parse(BalconyOrTerrace.Text),
-                double.Parse(UnlivingSpacesPublic.Text),
-                double.Parse(Offices.Text),
-                double.Parse(WarmLogia.Text),
-            };
-            var names = new List<string>()
-            {
-                "Жилые помещения квартиры",
-                "Нежилые помещения квартиры",
-                "Лоджия",
-                "Балкон, терраса",
-                "Нежилые помещения общественные",
-                "Офисы",
-                "Теплые лоджии",
-            };
+            var textBoxes = GetAllTextBoxes(this);
+            var coefficient = textBoxes
+                .Select(tb => double.Parse(tb.Text, CultureInfo.InvariantCulture))
+                .ToList();
+            
+            var names = Coefficients.CoefficientsDictionary.Keys.ToList();
             var result = new Dictionary<string, double>();
             for (var i = 0; i < names.Count; i++)
-                result.Add(names[i], coefficient[i]);
-            
+                result[names[i]] = coefficient[i];
+
             Coefficients.CoefficientsDictionary = result;
+        }
+
+        private List<TextBox> GetAllTextBoxes(DependencyObject parent)
+        {
+            var textBoxes = new List<TextBox>();
+            foreach (var child in LogicalTreeHelper.GetChildren(parent))
+            {
+                if (child is TextBox textBox)
+                {
+                    textBoxes.Add(textBox);
+                }
+                else if (child is DependencyObject dependencyObject)
+                {
+                    textBoxes.AddRange(GetAllTextBoxes(dependencyObject));
+                }
+            }
+            return textBoxes;
         }
     }
 }

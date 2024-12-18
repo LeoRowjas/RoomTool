@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoomTool.Views"
         mc:Ignorable="d"
-        Title="RoomTool" Height="640" Width="900" ResizeMode="CanResizeWithGrip">
+        Title="RoomTool" Height="600" Width="900" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

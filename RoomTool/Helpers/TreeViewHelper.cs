@@ -137,9 +137,6 @@ public static class TreeViewHelper
         }
     }
     
-    
-    
-    
     #region Tree Bottom Buttons
     public static void SelectAllItems(TreeView treeView)
     {
